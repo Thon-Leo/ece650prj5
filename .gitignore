@@ -3,8 +3,9 @@
 .vscode
 
 *.ko
-*.mod
+sneaky_mod.mod 
+sneaky_mod.mod.c
 
 .sneaky_mod.*
-.symvers
-.order
+*.symvers
+*.order
