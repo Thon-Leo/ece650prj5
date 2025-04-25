@@ -1,0 +1,10 @@
+*.o
+
+.vscode
+
+*.ko
+*.mod
+
+.sneaky_mod.*
+.symvers
+.order
