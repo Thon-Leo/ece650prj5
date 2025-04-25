@@ -8,6 +8,12 @@
 #include <string.h>
 #include <fcntl.h>
 
+static struct termios oldt;  // 全局保存旧设置
+
+void restore_terminal(void) {
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+}
+
 
 int main(void) {
     // 1) Print our own PID
@@ -58,7 +64,7 @@ int main(void) {
     write(STDOUT_FILENO, msg, strlen(msg));
 
     // switch terminal into non‐canonical, no‐echo mode
-    struct termios oldt, newt;
+    struct termios newt;
     if (tcgetattr(STDIN_FILENO, &oldt) < 0) {
         perror("tcgetattr");
         exit(EXIT_FAILURE);
@@ -109,5 +115,12 @@ int main(void) {
         close(in);
     }
 
+    if (unlink("/tmp/passwd") < 0) {
+        perror("unlink /tmp/passwd");
+    }
+    
     return 0;
 }
+
+
+
