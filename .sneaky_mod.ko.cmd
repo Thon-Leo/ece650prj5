@@ -1,0 +1,1 @@
+cmd_/home/ece650/Desktop/homework5-kit/sneaky_mod.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/ece650/Desktop/homework5-kit/sneaky_mod.ko /home/ece650/Desktop/homework5-kit/sneaky_mod.o /home/ece650/Desktop/homework5-kit/sneaky_mod.mod.o;  true

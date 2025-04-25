@@ -1,0 +1,31 @@
+{
+    "version": 4,
+    "configurations": [
+      {
+        "name": "Linux Kernel Module",
+        "intelliSenseMode": "linux-gcc-x64",
+        "cStandard": "c11",
+  
+        "compilerPath": "/usr/bin/gcc",
+  
+        "includePath": [
+          "${workspaceFolder}",
+  
+          // kernel header trees
+          "/usr/src/linux-headers-5.4.0-104-generic/include",
+          "/usr/src/linux-headers-5.4.0-104-generic/include/uapi",
+          "/usr/src/linux-headers-5.4.0-104-generic/arch/x86/include",
+          "/usr/src/linux-headers-5.4.0-104-generic/arch/x86/include/uapi",
+          "/usr/src/linux-headers-5.4.0-104-generic/arch/x86/include/generated"
+        ],
+  
+        "defines": [
+          "__KERNEL__",    // build as kernel code
+          "MODULE",        // module code
+          "__linux__",     // linux environment
+          "CONFIG_X86"     // architecture-specific
+        ]
+      }
+    ]
+  }
+  
